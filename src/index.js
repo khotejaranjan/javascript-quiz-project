@@ -13,6 +13,8 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // End view elements
   const resultContainer = document.querySelector("#result");
+  const restartButton = document.querySelector("#restartQuiz");
+
 
 
   /************  SET VISIBILITY OF VIEWS  ************/
@@ -65,6 +67,7 @@ document.addEventListener("DOMContentLoaded", () => {
   /************  EVENT LISTENERS  ************/
 
   nextButton.addEventListener("click", nextButtonHandler);
+  restartButton.addEventListener("click", restartButtonHandler);
 
 
 
@@ -95,25 +98,19 @@ document.addEventListener("DOMContentLoaded", () => {
     
 
     // YOUR CODE HERE:
+
     //
     // 1. Show the question
     // Update the inner text of the question container element and show the question text
     questionContainer.innerText = question.text
-
     
     // 2. Update the green progress bar
     // Update the green progress bar (div#progressBar) width so that it shows the percentage of questions answered
-    
     progressBar.style.width = `${(quiz.currentQuestionIndex / quiz.questions.length)*100}%`; 
-
-
 
     // 3. Update the question count text 
     // Update the question count (div#questionCount) show the current question out of total questions
-    
     questionCount.innerText = `Question ${quiz.currentQuestionIndex + 1} of ${quiz.questions.length}`; 
-
-
     
     // 4. Create and display new radio input element with a label for each choice.
     // Loop through the current question `choices`.
@@ -193,5 +190,43 @@ document.addEventListener("DOMContentLoaded", () => {
     // 3. Update the result container (div#result) inner text to show the number of correct answers out of total questions
     resultContainer.innerText = `You scored 1 out of 1 correct answers!`; // This value is hardcoded as a placeholder
   }
+//Implement the DOM logic - function showResults():
+//See Instructions
+//The function showResults is used to display the end view and the final score when the last question is answered. When invoked, the function should:
+//Hide the quiz view
+//Show the end view
+//Display the final score
+    function showResults() {
+      clearInterval(timer);
+  // 1. Hide the quiz view (div#quizView)
+  quizView.style.display = "none";
+  // 2. Show the end view (div#endView)
+  endView.style.display = "flex";
+  // 3. Display the final score
+  resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${questions.length} correct answers!`;
+}
+
+/*Implement a "Restart Quiz" button:
+See Instructions
+Now that you have implemented the quiz functionality, add a "Restart Quiz" button to the end view to allow the user to restart the quiz.
+The button is already included in the index.html file, but we left it commented out. Go ahead and uncomment the button element to display the button.
+Once you have done that, in the index.js add a "click" event listener to the reset quiz button and implement the event handler function. When the button is clicked, the function should:
+Hide the end view
+Show the quiz view
+Reset the quiz:
+Reset the currentQuestionIndex to 0
+Reset the correctAnswers to 0
+Shuffle the questions
+Show the first question
+*/
+  function restartQuiz() {
+  quiz.currentQuestionIndex = 0;
+  quiz.correctAnswers = 0;
+  quiz.shuffleQuestions();
+  quiz.timeRemaining = quizDuration;
+  updateTimerDisplay();
+  startTimer();
+  showQuestion();
+}
   
 });
