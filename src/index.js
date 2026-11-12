@@ -96,21 +96,12 @@ function startTimer() {
       return;
     }
 
-    function restartButtonHandler() {
-      endView.style.display = "none";
-      quizView.style.display = "block";
-      quiz.currentQuestionIndex = 0;
-      quiz.correctAnswers = 0;
-      quiz.timeRemaining = quiz.timeLimit;
-      updateTimerText();
-      quiz.shuffleQuestions();
-      showQuestion();
-      startTimer();
-    }
 
     // Clear the previous question text and question choices
     questionContainer.innerText = "";
     choiceContainer.innerHTML = "";
+
+    
 
     // Get the current question from the quiz by calling the Quiz class method `getQuestion()`
     const question = quiz.getQuestion();
@@ -220,4 +211,16 @@ const choices = document.querySelectorAll('input[name="choice"]');
     resultContainer.innerText = `You scored ${quiz.correctAnswers} out of ${quiz.questions.length} correct answers!`; // This value is hardcoded as a placeholder
   }
   
+   function restartButtonHandler() {
+      endView.style.display = "none";
+      quizView.style.display = "block";
+      quiz.currentQuestionIndex = 0;
+      quiz.correctAnswers = 0;
+      quiz.timeRemaining = quiz.timeLimit;
+      updateTimerText();
+      quiz.shuffleQuestions();
+      showQuestion();
+      startTimer();
+    }
+
 });
