@@ -31,13 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
     new Question("What is 2 + 2?", ["3", "4", "5", "6"], "4", 1),
     new Question("What is the capital of France?", ["Miami", "Paris", "Oslo", "Rome"], "Paris", 1),
     new Question("Who created JavaScript?", ["Plato", "Brendan Eich", "Lea Verou", "Bill Gates"], "Brendan Eich", 2),
-    new Question("What is the mass–energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),
-    new Question("What is the largest ocean on Earth?", ["Atlantic", "Indian", "Arctic", "Pacific"], "Pacific", 1),
-    new Question("Who painted the Mona Lisa?", ["Michelangelo", "Leonardo da Vinci", "Raphael", "Van Gogh"], "Leonardo da Vinci", 1),
-    new Question("How many continents are there?", ["5", "6", "7", "8"], "7", 1),
-    new Question("What is the chemical symbol for gold?", ["Go", "Gd", "Au", "Ag"], "Au", 2),
-    new Question("Which country has the largest population in the world?", ["United States", "India", "Indonesia", "Brazil"], "India", 2),
-    new Question("Who wrote the play Romeo and Juliet?", ["Charles Dickens", "William Shakespeare", "Jane Austen", "Mark Twain"], "William Shakespeare", 2),
+    new Question("What is the mass–energy equivalence equation?", ["E = mc^2", "E = m*c^2", "E = m*c^3", "E = m*c"], "E = mc^2", 3),,
   ];
   const quizDuration = 120; // 120 seconds (2 minutes)
 
